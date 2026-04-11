@@ -1,0 +1,10 @@
+{
+"query_builder_sub": [
+	{
+		"id" : 1,
+		"id_query_builder" : 1,
+		"alias_name" : "claims",
+		"value" : "select r.role_name from \"role\" r inner join \"user_role\" ur on ur.id_role = r.id  and ur.id_user = ${:id}",
+		"comment" : null
+	}
+]}

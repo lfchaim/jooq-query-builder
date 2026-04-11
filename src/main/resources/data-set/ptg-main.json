@@ -1,0 +1,6 @@
+{
+  "dataset-name": "ptg-iam",
+  "jdbc-url": "jdbc:postgresql://localhost:5432/mydatabase",
+  "jdbc-usr": "postgres",
+  "jdbc-crypto-pwd": "pl5ZbToGfTpwvKH2CPf/RA=="
+}

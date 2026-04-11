@@ -1,0 +1,9 @@
+{
+"log_message": [
+	{
+		"id" : "cc86edca-ad30-42fb-8b00-9ac44b880f48",
+		"log_type" : "MESSAGE",
+		"date_created" : "2026-03-23T13:46:06.979Z",
+		"log_json" : "{\"msg\": \"Hello!\"}"
+	}
+]}

@@ -1,0 +1,185 @@
+
+Table "global_param" {
+  "id" varchar(20) [not null]
+  "value" varchar
+  "type" varchar
+  "fl_active" bool
+
+  Indexes {
+    id [pk, name: "global_param_pkey"]
+  }
+}
+
+Table "gtw_route_history" {
+  "id" uuid [not null]
+  "id_route" int4 [not null]
+  "id_source_type" varchar(1) [not null]
+  "id_source" varchar [not null]
+  "date_created" timestamp [not null, default: `now()`]
+
+  Indexes {
+    (id, date_created) [pk, name: "gtw_route_history_pk"]
+  }
+}
+
+Table "gtw_route_permission_role" {
+  "id_route" int4 [not null]
+  "id_role" varchar [not null]
+  "limit_invoke" int4
+  "limit_type" varchar
+  "limit_result" int4 [not null, default: 0]
+  "limit_invoke_type" varchar
+  "limit_record" int4 [default: 0]
+  "limit_report" int4 [default: 0]
+  "limit_user" int4 [default: 0]
+  "limit_invoke_report" int4 [default: 0]
+
+  Indexes {
+    (id_route, id_role) [pk, name: "gtw_route_permission_role_pkey"]
+  }
+}
+
+Table "gtw_route_role" {
+  "id_route" int4 [not null]
+  "id_role" varchar [not null]
+  "date_created" timestamp [default: `now()`]
+
+  Indexes {
+    (id_route, id_role) [pk, name: "gtw_route_role_pk"]
+  }
+}
+
+Table "gtw_route_usage" {
+  "id" bigserial [not null, increment]
+  "id_route" int4 [not null]
+  "id_user" int4 [not null]
+  "date_created" timestamp [default: `now()`]
+
+  Indexes {
+    id [pk, name: "gtw_route_usage_pkey"]
+  }
+}
+
+Table "gtw_routes" {
+  "id" serial4 [not null]
+  "path" varchar [not null]
+  "method" varchar [not null]
+  "url" varchar [not null]
+  "content_type" varchar
+  "fl_propag_status" bool [not null, default: false]
+  "json_scope" jsonb
+
+  Indexes {
+    id [pk, name: "gtw_routes_pkey"]
+  }
+}
+
+Table "log_gtw" {
+  "id" bigserial [not null, increment]
+  "date_created" timestamp [default: `now()`]
+  "log_json" jsonb
+
+  Indexes {
+    id [pk, name: "log_gtw_pkey"]
+  }
+}
+
+Table "log_message" {
+  "id" uuid [not null]
+  "log_type" varchar [not null, default: `'MESSAGE'::charactervarying`]
+  "date_created" timestamp [not null, default: `now()`]
+  "log_json" jsonb
+
+  Indexes {
+    id [pk, name: "log_message_pk"]
+  }
+}
+
+Table "query_builder" {
+  "id" serial4 [not null]
+  "key" varchar(10)
+  "value" text
+  "comment" varchar(50)
+  "has_sub" bool [default: false]
+
+  Indexes {
+    key [unique, name: "query_builder_key_key"]
+    id [pk, name: "query_builder_pkey"]
+  }
+}
+
+Table "query_param" {
+  "id" serial4 [not null]
+  "key" varchar(50)
+  "value" text
+  "comment" varchar(50)
+  "exclude_fields" varchar
+
+  Indexes {
+    id [pk, name: "query_param_pkey"]
+    key [unique, name: "query_param_uk1"]
+  }
+}
+
+Table "role" {
+  "id" serial4 [not null]
+  "role_name" varchar [not null]
+
+  Indexes {
+    id [pk, name: "role_pk"]
+  }
+}
+
+Table "user" {
+  "id" serial4 [not null]
+  "user_name" varchar [not null]
+  "email" varchar [not null]
+  "full_name" varchar [not null]
+
+  Indexes {
+    id [pk, name: "user_pk"]
+  }
+}
+
+Table "query_builder_sub" {
+  "id" serial4 [not null]
+  "id_query_builder" int4 [not null]
+  "alias_name" varchar
+  "value" text
+  "comment" varchar
+
+  Indexes {
+    id [pk, name: "query_builder_sub_pkey"]
+  }
+}
+
+Table "task" {
+  "id" serial4 [not null]
+  "id_user" int4 [not null]
+  "description" varchar [not null]
+  "date_created" timestamp
+  "date_started" timestamp
+  "date_finished" time
+
+  Indexes {
+    id [pk, name: "task_pk"]
+  }
+}
+
+Table "user_role" {
+  "id_user" int4 [not null]
+  "id_role" int4 [not null]
+  "date_create" timestamp [not null, default: `now()`]
+
+  Indexes {
+    (id_user, id_role) [pk, name: "user_role_pk"]
+  }
+}
+
+Ref "query_builder_sub_fk1":"query_builder"."id" < "query_builder_sub"."id_query_builder"
+
+Ref "task_fk1":"user"."id" < "task"."id_user"
+
+Ref "user_role_role_fk":"role"."id" < "user_role"."id_role"
+
+Ref "user_role_user_fk":"user"."id" < "user_role"."id_user"

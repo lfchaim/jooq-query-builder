@@ -1,0 +1,28 @@
+{
+"user_role": [
+	{
+		"id_user" : 1,
+		"id_role" : 1,
+		"date_create" : "2025-11-05T15:35:52.652Z"
+	},
+	{
+		"id_user" : 2,
+		"id_role" : 1,
+		"date_create" : "2025-12-31T11:09:36.462Z"
+	},
+	{
+		"id_user" : 2,
+		"id_role" : 2,
+		"date_create" : "2025-12-31T11:09:36.468Z"
+	},
+	{
+		"id_user" : 2,
+		"id_role" : 3,
+		"date_create" : "2025-12-31T11:09:36.471Z"
+	},
+	{
+		"id_user" : 2,
+		"id_role" : 4,
+		"date_create" : "2025-12-31T11:09:36.476Z"
+	}
+]}

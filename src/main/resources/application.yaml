@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: jooq-query-builder
+  profiles:
+    active: ${APP_PROFILE:dev}
+
+server:
+  port: 8080
+
+query-builder:
+  query-path: classpath:query/
+  dataset-path: classpath:data-set/
+  crypto:
+    secret-key: "MySecretKey12345"
+    algorithm: AES
+
+logging:
+  level:
+    com.querybuilder: DEBUG
+    org.jooq: DEBUG

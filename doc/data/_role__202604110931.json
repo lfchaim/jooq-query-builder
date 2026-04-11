@@ -1,0 +1,19 @@
+{
+"role": [
+	{
+		"id" : 1,
+		"role_name" : "Administrator"
+	},
+	{
+		"id" : 2,
+		"role_name" : "Java Developer"
+	},
+	{
+		"id" : 3,
+		"role_name" : "Solution Architect"
+	},
+	{
+		"id" : 4,
+		"role_name" : "Software Architect"
+	}
+]}

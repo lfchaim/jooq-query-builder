@@ -1,0 +1,10 @@
+{
+"query_param": [
+	{
+		"id" : 1,
+		"key" : "qp-user",
+		"value" : "select * from public.user where id = ${:user_id}",
+		"comment" : null,
+		"exclude_fields" : null
+	}
+]}

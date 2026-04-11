@@ -1,0 +1,15 @@
+{
+"user": [
+	{
+		"id" : 1,
+		"user_name" : "admin",
+		"email" : "admin@admin.com",
+		"full_name" : "Administrator"
+	},
+	{
+		"id" : 2,
+		"user_name" : "lfchaim",
+		"email" : "lfchaim@com.com",
+		"full_name" : "Fernando Chaim"
+	}
+]}

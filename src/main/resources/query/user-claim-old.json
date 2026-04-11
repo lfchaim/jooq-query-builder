@@ -1,0 +1,50 @@
+{
+  "query": {
+    "name": "user-claim",
+    "mainQuery": {
+      "from": "public.user u",
+      "joins": [
+        { "type": "INNER", "table": "user_role ur", "on": "ur.id_user = u.id" }
+      ],
+      "select": ["u.id", "u.user_name", "u.email", "u.full_name", "ur.id_role"],
+      "filters": [
+        {
+          "groupId": "idUser",
+          "required": [],
+          "optional": ["idUser"],
+          "conditions": [
+            { "column": "u.id",     "op": "=",  "param": "idUser"    }
+          ]
+        },
+        {
+          "groupId": "userName",
+          "required": [],
+          "optional": ["userName"],
+          "conditions": [
+            { "column": "u.user_name", "op": "=", "param": "userName" }
+          ]
+        }
+      ]
+    },
+    "subQueries": [
+      {
+        "name": "roleItems",
+        "bindKey": "roleId",
+        "mainResultKey": "ur.id_role",
+        "from": "public.role r",
+        "select": ["r.role_name"],
+        "filters": [
+          {
+            "groupId": "roleIdFilter",
+            "required": ["roleId"],
+            "optional": [],
+            "conditions": [
+              { "column": "r.id", "op": "=", "param": "roleId" }
+            ]
+          }
+        ],
+        "mergeKey": "claims"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+"global_param": [
+	{
+		"id" : "qbuilder_sub_thread",
+		"value" : "10",
+		"type" : "Integer",
+		"fl_active" : true
+	}
+]}

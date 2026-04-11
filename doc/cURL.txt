@@ -1,0 +1,4 @@
+
+http://localhost:8080/api/v1/crypto/encrypt?value=postgres
+
+http://localhost:8080/api/v1/query-builder/ptg-iam/user-claim?idUser=2

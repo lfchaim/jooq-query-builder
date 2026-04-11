@@ -1,0 +1,10 @@
+{
+"query_builder": [
+	{
+		"id" : 1,
+		"key" : "user-claim",
+		"value" : "select id,user_name,full_name as name from \"user\" u",
+		"comment" : "",
+		"has_sub" : true
+	}
+]}
